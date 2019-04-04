@@ -1,0 +1,12 @@
+<p>
+    <strong>Date:</strong>
+    <%= @workout.date %>
+</p>
+
+<p>
+    <strong>Description:</strong>
+    <%= @workout.description %>
+</p>
+
+<%= link_to 'Edit', edit_workout_path(@workout) %> |
+<%= link_to 'Back', workouts_path %>
