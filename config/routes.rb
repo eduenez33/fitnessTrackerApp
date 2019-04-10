@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   resources :workouts
 
-  root 'welcome#index'
+  root 'welcome#index', as: 'home'
 
 end

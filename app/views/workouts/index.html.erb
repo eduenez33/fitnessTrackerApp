@@ -1,24 +1,29 @@
-<h1>Listing Workouts</h1>
+  <h1>Listing Workouts</h1>
 
-<%= link_to 'Home', controller: "welcome" %> | 
-<%= link_to 'New Workout', new_workout_path %>
- 
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Description</th>
-    <th></th>
-  </tr>
- 
-  <% @workouts.each do |workout| %>
-    <tr>
-      <td><%= workout.date.strftime("%m-%d-%Y") %></td>
-      <td><%= workout.description %></td>
-      <td><%= link_to 'Show', workout_path(workout) %> | </td>
-      <td><%= link_to 'Edit', edit_workout_path(workout) %> | </td>
-      <td><%= link_to 'Destroy', workout_path(workout),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @workouts.each do |workout| %>
+            <tr>
+              <td><%= workout.date.strftime("%m-%d-%Y") %></td>
+              <td><%= workout.description %></td>
+              <td><%= link_to 'Show', workout_path(workout) %></td>
+              <td><%= link_to 'Edit', edit_workout_path(workout), {:class => 'text-warning'} %></td>
+              <td>
+                <%= link_to 'Delete', workout_path(workout), method: :delete,
+                data: { confirm: 'Are you sure?' }, :class => 'text-danger'%>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <%= link_to 'Track a new Workout', new_workout_path, {:class => 'btn btn-success'} %>

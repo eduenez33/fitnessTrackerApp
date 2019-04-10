@@ -1,6 +1,6 @@
 <p>
     <strong>Date:</strong>
-    <%= @workout.date %>
+    <%= @workout.date.strftime("%m-%d-%Y") %>
 </p>
 
 <p>
@@ -8,5 +8,5 @@
     <%= @workout.description %>
 </p>
 
-<%= link_to 'Edit', edit_workout_path(@workout) %> |
-<%= link_to 'Back', workouts_path %>
+<%= link_to 'Edit', edit_workout_path(@workout), {:class => 'btn btn-warning'} %>
+<%= link_to 'Back', workouts_path, {:class => 'btn btn-danger'} %>
